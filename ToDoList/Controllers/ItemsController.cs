@@ -14,13 +14,6 @@ namespace ToDoList.Controllers
       return View(category);
     }
 
-    [HttpPost("/items")]
-    public ActionResult Create(string description)
-    {
-      Item myItem = new Item(description);
-      return RedirectToAction("Index");
-    }
-
     [HttpPost("/items/delete")]
     public ActionResult DeleteAll()
     {
@@ -28,10 +21,10 @@ namespace ToDoList.Controllers
       return View();
     }
     
-    [HttpGet("/categories/{category}/items/{id}")]
-    public ActionResult Show(int categoryId, int itemId)
+    [HttpGet("/categories/{categoryId}/items/{id}")]
+    public ActionResult Show(int categoryId, int id)
     {
-      Item item = Item.Find(itemId);
+      Item item = Item.Find(id);
       Category category = Category.Find(categoryId);
       Dictionary<string, object> model = new Dictionary<string, object>();
       model.Add("item", item);
