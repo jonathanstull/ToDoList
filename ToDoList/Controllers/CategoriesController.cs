@@ -7,32 +7,32 @@ namespace ToDoList.Controllers
 {
   public class CategoriesController : Controller
   {
-    [HttpGet('/categories')]
+    [HttpGet("/categories")]
     public ActionResult Index()
     {
       List<Category> allCategories = Category.GetAll();
       return View(allCategories);
     }
 
-    [HttpGet('/categories/new')]
+    [HttpGet("/categories/new")]
     public ActionResult New()
     {
       return View();
     }
 
-    [HttpPost('/categories')]
+    [HttpPost("/categories")]
     public ActionResult Create(string categoryName)
     {
       Category newCategory = new Category(categoryName);
       return RedirectToAction("Index");
     }
 
-    [HttpGet('/categories/{id}')]
+    [HttpGet("/categories/{id}")]
     public ActionResult Show(int searchId)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Category selectedCategory = Category.Find(searchId);
-      <List>Items categoryItems = selectedCategory.Items;
+      List<Item> categoryItems = selectedCategory.Items;
       model.Add("category", selectedCategory);
       model.Add("items", categoryItems);
       return View(model);
