@@ -11,5 +11,11 @@ namespace ToDoList.Controllers
         return View();
       }
 
+      [HttpGet("/daily-photo")]
+      public ActionResult DailyPhoto()
+      {
+        return View();
+      }
+
     }
 }
