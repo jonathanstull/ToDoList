@@ -135,8 +135,8 @@ namespace ToDoList.Tests
         // Arrange
         string description01 = "Walk the dog";
         string description02 = "Wash the dishes";
-        Item newItem1 = new Item(description01);
-        newItem1.Save();
+        Item newItem = new Item(description01);
+        newItem.Save();
         Item newItem2 = new Item(description02);
         newItem2.Save();
 
